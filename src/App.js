@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header'
+import CardContainer from './components/CardContainer'
+import Form from './components/Form'
+import { useState } from 'react';
 
 function App() {
+  
+  // here I need to know the pokemon name for the form so I need to make it parent level
+  const [pokeName, setPokeName] = useState('')
+  const [answer, setAnswer] = useState(false)
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <CardContainer pokeName={pokeName} setPokeName={setPokeName} answer={answer}/>
+      <Form pokeName={pokeName} answer={answer} setAnswer={setAnswer}/>
     </div>
   );
 }
